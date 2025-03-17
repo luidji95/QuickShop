@@ -22,7 +22,6 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
-      {/* ✅ Dodajemo View All Items dugme u gornji desni ugao */}
       <button className="view-cart-btn">View All Items</button>
 
       <h1 className="cart-title">Available Products</h1>
@@ -33,12 +32,12 @@ const Cart = () => {
           Total Items: <strong>{totalItems}</strong>
         </p>
         <p>
-          Total Price: <strong>${totalPrice.toFixed(2)}</strong>
+          Total Price: <strong>${totalPrice?.toFixed(2) || "0.00"}</strong>
         </p>
       </div>
 
       <div className="cart-items">
-        {products?.map((product) => (
+        {products.map((product) => (
           <div key={product.id} className="cart-item">
             <img src={product.image} alt={product.title} />
             <h3>{product.title}</h3>
